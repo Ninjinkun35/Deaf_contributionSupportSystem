@@ -1,5 +1,23 @@
 @charset "utf-8";
 
-h1{
-    color: #36a93a
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    max-width: 1064px;
+    /*パディング分を考慮して*/
+    min-width: 1064px;
+    /*パディング分を考慮して*/
+    margin: auto;
+    padding: 40px;
+}
+
+.Contribution > textarea{
+    resize: none;
+    /*手動リサイズを禁止*/
+    min-height: 200px;
+    /*高さの最小値を指定*/
+    width: 80%;
 }
