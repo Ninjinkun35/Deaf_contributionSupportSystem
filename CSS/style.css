@@ -15,9 +15,14 @@ body{
 }
 
 .Contribution > textarea{
+     /*手動リサイズを禁止*/
     resize: none;
-    /*手動リサイズを禁止*/
-    min-height: 200px;
-    /*高さの最小値を指定*/
+     /*高さの最小値を指定*/
+    min-height: 800px;
+    padding: 0.5em;
     width: 80%;
+    /*入力する文字の大きさを指定*/
+    font-size: 450%; 
+    /*入力する文字のテキストを指定（明朝体）*/
+    font-family: serif;
 }
