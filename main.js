@@ -20,3 +20,45 @@ document.addEventListener('DOMContentLoaded', function(){
         console.error("ボタンがDOMに存在しません。");
     }
 });
+
+// カメラの動的処理
+window.addEventListener('load', function(){
+    // Videoのstream
+    let stream = null;
+    // Videoの設定値
+    const constraints = {
+        audio: false,
+        video: {
+            width: 300,
+            height: 300,
+            // フロントカメラの場合
+            facingMode: 'user',
+        },
+    }
+    // カメラ起動
+    async function startCamera(constraints) {
+        try{
+            stream = await navigator.mediaDevices.getUserMedia(constraints);
+            const video = document.getElementById('video');
+            video.srcObject = stream;
+            video.onloadedmetadata = () => {
+                video.play();
+            };
+        } catch(err){
+            //エラーハンドリング
+            console.error(err);
+        }
+    }
+    // カメラ停止
+    function stopCamera(){
+        const video = document.getElementById('video');
+        const tracks = video.srcObject.getTracks();
+        tracks.forEach((track) => {
+            track.stop();
+        });
+        video.srcObject = null;
+    }
+
+    // 初期処理
+    startCamera(constraints);
+});

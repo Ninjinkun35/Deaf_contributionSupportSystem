@@ -44,9 +44,16 @@ body{
     box-sizing: border-box;  /*要素に高さと幅を含める*/
 }
 
+/*呼びかけボタンへクリック*/
 #Calling:hover{
     /*マウスポインタを当てた時にアクティブな色になる*/
     background: #13178E;
     /*マウスポインタを当てた時に、カーソルが指の形になる*/
     cursor: pointer;
+}
+
+/*カメラ画面*/
+.Camera > video{
+    min-height: 300px;
+    width: 80%;
 }
