@@ -8,18 +8,25 @@
     </head>
 
     <body>
+        <!--親ブロックの設定（container）-->
+        <div class="container">
+            <!--左画面-->
+            <div class="left">
+                <!--発言入力画面-->
+                <div class="Contribution">
+                    <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力"></textarea>
+                </div>
+            </div>
         
-        <!--発言入力画面-->
-        <div class="Contribution">
-            <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力"></textarea>
-        </div>
-
-        <!--呼びかけボタンの実装-->
-        <div id="Calling">呼びかけ</div>
-
-        <!--カメラ起動-->
-        <div class="Camera">
-            <video id="video" playsinline></video>
+             <!--右画面-->
+            <div class="right">
+                <!--カメラ起動-->
+                <div class="Camera">
+                    <video id="video" playsinline></video>
+                </div>        
+                <!--呼びかけボタンの実装-->
+                <div id="Calling">呼びかけ</div>
+            </div>
         </div>
 
         <script src="main.js"></script>
