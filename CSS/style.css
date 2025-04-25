@@ -14,6 +14,7 @@ body{
     padding: 40px;
 }
 
+/*テキスト入力画面*/
 .Contribution > textarea{
      /*手動リサイズを禁止*/
     resize: none;
@@ -25,4 +26,27 @@ body{
     font-size: 450%; 
     /*入力する文字のテキストを指定（明朝体）*/
     font-family: serif;
+}
+
+/*呼びかけボタン*/
+#Calling{
+    width: 250px; /*ボタンの幅*/
+    height: 100px; /*ボタンの高さ*/
+    font-size: 30px; /*文字（「呼びかけ」）の大きさ*/
+    line-height: 3em; /*文字の行間の調整*/
+    position: relative; /*要素をその本来の位置から相対的に移動させたい場合に使うCSSプロパティ*/
+    color: #ffff; /*文字の色*/
+    font-weight: bold; /*フォントを太字に指定*/
+    background: #bcbcbc; /*背景（ボタン）の色*/
+    text-align: center; /*文字の位置を中央揃えにする*/
+    border: 1px solid #bbb; /*文字の周辺の線の設定*/
+    border-radius: 4px; /*角丸に設定する*/
+    box-sizing: border-box;  /*要素に高さと幅を含める*/
+}
+
+#Calling:hover{
+    /*マウスポインタを当てた時にアクティブな色になる*/
+    background: #13178E;
+    /*マウスポインタを当てた時に、カーソルが指の形になる*/
+    cursor: pointer;
 }
