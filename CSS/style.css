@@ -14,6 +14,108 @@ body{
     padding: 0;
 }
 
+/*ヘッダーのスタイリング*/
+.header{
+    height: 80px;
+    background-color: #0f5474;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.header_container{
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    color: #fff;
+    padding: 0 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.header_logo{
+    text-decoration: none;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+}
+
+/*ハンバーガーボタンのスタイリング*/
+.hamburger{
+    width: 50px;
+    height: 80px;
+    position: relative;
+    appearance: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #0f5474;
+    cursor: pointer;
+}
+
+.hamburger span,
+.hamburger span::after,
+.hamburger span::before{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.hamburger span::before{
+    top: -10px;
+}
+
+.hamburger span::after{
+    bottom: -10px;
+}
+
+/*ハンバーガーボタンを押すと、✖ボタンの表示*/
+.hamburger.open span{
+    background-color: transparent;
+}
+.hamburger.open span::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.hamburger.open span::after{
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+/*メニューのスタイリング*/
+.nav{
+    position: fixed;
+    width: 80%;
+    height: 100vh;
+    top: 80px;
+    right: -100%;
+    background-color: #0f5474;
+    padding: 50px 0;
+    transition: all 0.5s;
+    border-top: 1px solid #fff;
+}
+.nav_item{
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 0 20px 50px;
+    text-transform: uppercase;
+}
+.nav_item:hover{ /*メニューのテキストをクリックすると*/
+    color: #0f5474;
+    background-color: #fff;
+}
+.nav.open{
+    right: 0;
+}
+
 /*左画面にテキスト欄, 右画面にカメラ画面＆呼びかけボタンの配置*/
 .container{
     display: flex;

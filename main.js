@@ -1,3 +1,15 @@
+// ハンバーガーボタンの動的処理
+{
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav'); //navクラスの要素を取得
+
+    hamburger.addEventListener('click', function(){
+        hamburger.classList.toggle('open'); //hamburgerにopenクラスを付け外しする
+        nav.classList.toggle('open'); //openクラスを付け外しする
+    });
+}
+
+
 // 呼びかけボタンの動的処理
 
 // DOMが完全にロードされたらイベントリスナーを設定
