@@ -9,9 +9,40 @@
     });
 }
 
+// 発言入力の動的処理
+document.addEventListener('DOMContentLoaded', () => {
+    // テキストエリアにイベントリスナーを設定
+    const textarea = document.getElementById("Chat");
+    textarea.addEventListener("keyup", function(e){
+        // Enterがクリックされる場合に発話する
+        if(e.key === 'Enter'){
+            const cursorPos = textarea.selectionStart;
+            const textBeforeCursor = textarea.value.substring(0, cursorPos);
+
+            // 最後の改行位置を探す
+            const lines = textBeforeCursor.split('\n');
+            const lastLine = lines[lines.length - 2] || ''; //1つ前の行
+
+            if(lastLine.trim() !== ''){
+                speak(lastLine);
+            }
+            // テキストを読み上げる
+            // speak(textarea.value);
+        }
+    });
+});
+
+// テキストを読み上げる関数
+function speak(text){
+    // SpeechSynthesisUtterance オブジェクトを作成
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "ja-JP"; //言語設定を日本語に設定
+    utterance.rate = 1.0; // 読み上げの速さを1.0倍に設定
+    //テキストを読み上げる
+    window.speechSynthesis.speak(utterance);
+}
 
 // 呼びかけボタンの動的処理
-
 // DOMが完全にロードされたらイベントリスナーを設定
 document.addEventListener('DOMContentLoaded', function(){
     // 発話ボタンにクリックイベントリスナーを設定
