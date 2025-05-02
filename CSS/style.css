@@ -198,3 +198,25 @@ body{
     /*マウスポインタを当てた時に、カーソルが指の形になる*/
     cursor: pointer;
 }
+
+/*呼びかけ音を流れる間に、呼びかけボタンへの押し上げ動作の停止*/
+#Calling:disabled{
+    background: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#Calling:disabled:hover{
+    background: #888;
+    cursor: not-allowed;
+}
+
+/* アニメーションの定義 */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
