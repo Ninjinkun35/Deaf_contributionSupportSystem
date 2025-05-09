@@ -145,7 +145,7 @@ body{
      /*手動リサイズを禁止*/
     resize: none;
      /*高さの最小値を指定*/
-    min-height: 800px;
+    min-height: 900px;
     /* padding: 0.5em; */
     width: 100%;
     /*入力する文字の大きさを指定*/
@@ -157,7 +157,7 @@ body{
 
 /*カメラ画面*/
 .Camera{
-    flex: 0 0 85%;
+    flex: 0 0 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,9 +174,15 @@ body{
 }
 
 /*呼びかけボタン*/
+#ControlContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 #Calling{
     flex: 0 0 15% 0;
-    width: 490px; /*ボタンの幅*/
+    width: 420px; /*ボタンの幅*/
     /* height: 100px; ボタンの高さ */
     font-size: 30px; /*文字（「呼びかけ」）の大きさ*/
     line-height: 3em; /*文字の行間の調整*/
@@ -189,6 +195,12 @@ body{
     border-radius: 4px; /*角丸に設定する*/
     box-sizing: border-box;  /*要素に高さと幅を含める*/
     margin-top: 20px;
+}
+
+#SoundToggleLabel {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 
 /*呼びかけボタンへクリック*/
@@ -219,4 +231,57 @@ body{
 
 .blink {
     animation: blink 1s infinite;
+}
+
+/*トグルボタンによる、通知音モード⇔「今いいですか？」モードの切り替わり*/
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input{
+    display: none;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider{
+    background-color: #2196F3;
+}
+
+input:checked + .slider::before{
+    transform: translateX(26px);
+}
+
+#ModeDisplay {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 20px;
+    background-color: #f9f9f9;
 }

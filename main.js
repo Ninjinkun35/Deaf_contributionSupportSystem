@@ -48,38 +48,87 @@ function speak(text){
 document.addEventListener('DOMContentLoaded', function(){
     // 発話ボタンにクリックイベントリスナーを設定
     const playButton = document.getElementById("Calling"); //playbuttonに変数名を更新
+    const soundToggle = document.getElementById("SoundToggle");
 
     // ボタンの存在をチェック
     if(playButton){
         playButton.addEventListener("click", function(){
-            // Audioインスタンスを作成し、ファイルを指定
-            var audio = new Audio('CallingSound2.mp3');
-
             // ボタンテキストを「呼びかけ中…」にして点滅
             playButton.disabled = true;
             playButton.textContent = "🔴 呼びかけ中...";
             playButton.classList.add("blink");
 
-            // 音声を再生
-            audio.play().catch(function(e){
-                console.log('音声再生に失敗しました。', e);
-                playButton.disabled = false;
-                playButton.textContent = "呼びかけ";
-                playButton.classList.remove("blink");
-            });
+            if(soundToggle.checked){
+                const utterance = new SpeechSynthesisUtterance("今いいですか？");
+                utterance.lang = "ja-JP";
+                utterance.rate = 1.0;
 
-            // 再生終了時に元に戻す
-            audio.onended = () => {
-                playButton.textContent = "呼びかけ";
-                playButton.classList.remove("blink");
-                playButton.disabled = false;
-            };
+                // 再生終了時に元に戻す
+                utterance.onend = () => {
+                    playButton.textContent = "呼びかけ";
+                    playButton.classList.remove("blink");
+                    playButton.disabled = false;
+                };
+
+                window.speechSynthesis.speak(utterance);
+            } else{
+                // Audioインスタンスを作成し、ファイルを指定
+                var audio = new Audio('CallingSound2.mp3');
+                let playCount = 0;
+                
+                // 音声を再生
+                audio.addEventListener('ended', () => {
+                    playCount++;
+                    if(playCount < 2){
+                        audio.currentTime = 0;
+                        audio.play()
+                    } else {
+                        playButton.disabled = false;
+                        playButton.textContent = "呼びかけ";
+                        playButton.classList.remove("blink");
+                    }
+                });
+
+                // 最初の1回目の再生開始
+                audio.play().catch(function(e){
+                    console.log('音声再生に失敗しました。', e);
+                    playButton.disabled = false;
+                    playButton.textContent = "呼びかけ";
+                    playButton.classList.remove("blink");
+                });
+
+                // // 再生終了時に元に戻す
+                // audio.onended = () => {
+                //     playButton.textContent = "呼びかけ";
+                //     playButton.classList.remove("blink");
+                //     playButton.disabled = false;
+                // };
+            } 
         });
     } else {
         // ボタンが見つからない場合のエラーメッセージ
         console.error("ボタンがDOMに存在しません。");
     }
 });
+
+// 通知音⇔今いいですか？モードの切り替わり
+document.addEventListener('DOMContentLoaded', function(){
+    const toggle = document.getElementById("SoundToggle");
+    const display = document.getElementById("ModeDisplay");
+
+    // 初期表示を設定
+    display.textContent = toggle.checked ? "「今いいですか？」モード" : "通知音モード";
+
+    // トグルボタンの状態が変わったら表示を更新
+    toggle.addEventListener('change', function(){
+        if(toggle.checked){
+            display.textContent = "「今いいですか？」モード";
+        } else{
+            display.textContent = "通知音モード";
+        }
+    });
+});
+
 
 // カメラの動的処理
 window.addEventListener('load', function(){

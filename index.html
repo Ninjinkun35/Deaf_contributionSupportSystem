@@ -44,7 +44,17 @@
                     <video id="video" playsinline></video>
                 </div>        
                 <!--呼びかけボタンの実装-->
-                <button id="Calling">呼びかけ</button>
+                <div>
+                    <div id="ModeDisplay">通知音モード</div>
+                </div>
+                <div id="ControlContainer">
+                    <button id="Calling">呼びかけ</button>
+
+                    <label class="switch" id="SoundToggleLabel">
+                        <input type="checkbox" id="SoundToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
 
