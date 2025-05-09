@@ -140,6 +140,12 @@ body{
     /* float: right; */
 }
 
+/*プロダクト名の画像*/
+.header_image{
+    width: 100px;
+    height: 70px;
+}
+
 /* テキスト入力画面 */
 .Contribution > textarea{
      /*手動リサイズを禁止*/

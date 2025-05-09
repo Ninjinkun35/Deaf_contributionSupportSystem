@@ -1,13 +1,13 @@
 // ハンバーガーボタンの動的処理
-{
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav'); //navクラスの要素を取得
+// {
+//     const hamburger = document.querySelector('.hamburger');
+//     const nav = document.querySelector('.nav'); //navクラスの要素を取得
 
-    hamburger.addEventListener('click', function(){
-        hamburger.classList.toggle('open'); //hamburgerにopenクラスを付け外しする
-        nav.classList.toggle('open'); //openクラスを付け外しする
-    });
-}
+//     hamburger.addEventListener('click', function(){
+//         hamburger.classList.toggle('open'); //hamburgerにopenクラスを付け外しする
+//         nav.classList.toggle('open'); //openクラスを付け外しする
+//     });
+// }
 
 // 発言入力の動的処理
 document.addEventListener('DOMContentLoaded', () => {
