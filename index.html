@@ -45,17 +45,23 @@
                 <div class="Camera">
                     <video id="video" playsinline></video>
                 </div>        
-                <!--呼びかけボタンの実装-->
-                <div>
+                <!-- <div>
                     <div id="ModeDisplay">通知音モード</div>
-                </div>
+                </div> -->
+                <!--呼びかけモードの設定-->
+                <label id="CallingTitle">呼びかけモードの設定</label>
+                <select id="CallingType">
+                    <option value="ModeDisplay">通知音モード</option>
+                    <option value="TextDisplay">今いいですか？モード</option>
+                </select>
+                <!--呼びかけボタンの実装-->
                 <div id="ControlContainer">
                     <button id="Calling">呼びかけ</button>
 
-                    <label class="switch" id="SoundToggleLabel">
+                    <!-- <label class="switch" id="SoundToggleLabel">
                         <input type="checkbox" id="SoundToggle">
                         <span class="slider"></span>
-                    </label>
+                    </label> -->
                 </div>
             </div>
         </div>

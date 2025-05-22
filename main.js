@@ -48,7 +48,8 @@ function speak(text){
 document.addEventListener('DOMContentLoaded', function(){
     // 発話ボタンにクリックイベントリスナーを設定
     const playButton = document.getElementById("Calling"); //playbuttonに変数名を更新
-    const soundToggle = document.getElementById("SoundToggle");
+    // const soundToggle = document.getElementById("SoundToggle");
+    const CallingType = document.getElementById("CallingType");
 
     // ボタンの存在をチェック
     if(playButton){
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
             playButton.textContent = "🔴 呼びかけ中...";
             playButton.classList.add("blink");
 
-            if(soundToggle.checked){
+            if(CallingType.options[1].selected){ //soundToggle.checked
                 const utterance = new SpeechSynthesisUtterance("今いいですか？");
                 utterance.lang = "ja-JP";
                 utterance.rate = 1.0;
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 };
 
                 window.speechSynthesis.speak(utterance);
-            } else{
+            } else if(CallingType.options[0].selected){
                 // Audioインスタンスを作成し、ファイルを指定
                 var audio = new Audio('CallingSound2.mp3');
                 let playCount = 0;
@@ -112,22 +113,22 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 // 通知音⇔今いいですか？モードの切り替わり
-document.addEventListener('DOMContentLoaded', function(){
-    const toggle = document.getElementById("SoundToggle");
-    const display = document.getElementById("ModeDisplay");
+// document.addEventListener('DOMContentLoaded', function(){
+//     const toggle = document.getElementById("SoundToggle");
+//     const display = document.getElementById("ModeDisplay");
 
-    // 初期表示を設定
-    display.textContent = toggle.checked ? "「今いいですか？」モード" : "通知音モード";
+//     // 初期表示を設定
+//     display.textContent = toggle.checked ? "「今いいですか？」モード" : "通知音モード";
 
-    // トグルボタンの状態が変わったら表示を更新
-    toggle.addEventListener('change', function(){
-        if(toggle.checked){
-            display.textContent = "「今いいですか？」モード";
-        } else{
-            display.textContent = "通知音モード";
-        }
-    });
-});
+//     // トグルボタンの状態が変わったら表示を更新
+//     toggle.addEventListener('change', function(){
+//         if(toggle.checked){
+//             display.textContent = "「今いいですか？」モード";
+//         } else{
+//             display.textContent = "通知音モード";
+//         }
+//     });
+// });
 
 
 // カメラの動的処理

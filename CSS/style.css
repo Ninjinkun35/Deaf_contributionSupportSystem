@@ -45,7 +45,7 @@ body{
 }
 
 /*ハンバーガーボタンのスタイリング*/
-.hamburger{
+/* .hamburger{
     width: 50px;
     height: 80px;
     position: relative;
@@ -55,9 +55,9 @@ body{
     margin: 0;
     background-color: #0f5474;
     cursor: pointer;
-}
+} */
 
-.hamburger span,
+/* .hamburger span,
 .hamburger span::after,
 .hamburger span::before{
     position: absolute;
@@ -67,18 +67,18 @@ body{
     height: 2px;
     background-color: #fff;
     transition: all 0.5s;
-}
+} */
 
-.hamburger span::before{
+/* .hamburger span::before{
     top: -10px;
-}
+} */
 
-.hamburger span::after{
+/* .hamburger span::after{
     bottom: -10px;
-}
+} */
 
 /*ハンバーガーボタンを押すと、✖ボタンの表示*/
-.hamburger.open span{
+/* .hamburger.open span{
     background-color: transparent;
 }
 .hamburger.open span::before{
@@ -88,10 +88,10 @@ body{
 .hamburger.open span::after{
     bottom: 0;
     transform: rotate(-45deg);
-}
+} */
 
 /*メニューのスタイリング*/
-.nav{
+/* .nav{
     position: fixed;
     width: 80%;
     height: 100vh;
@@ -101,22 +101,23 @@ body{
     padding: 50px 0;
     transition: all 0.5s;
     border-top: 1px solid #fff;
-}
-.nav_item{
+} */
+/* .nav_item{
     display: block;
     font-size: 20px;
     color: #fff;
     text-decoration: none;
     padding: 20px 0 20px 50px;
     text-transform: uppercase;
-}
-.nav_item:hover{ /*メニューのテキストをクリックすると*/
+} */
+/*メニューのテキストをクリックすると*/
+/* .nav_item:hover{ 
     color: #0f5474;
     background-color: #fff;
-}
-.nav.open{
+} */
+/* .nav.open{
     right: 0;
-}
+} */
 
 /*左画面にテキスト欄, 右画面にカメラ画面＆呼びかけボタンの配置*/
 .container{
@@ -210,6 +211,17 @@ body{
     display: flex;
     align-items: center;
 }
+/*呼びかけモード設定ボタン*/
+#CallingType{
+    width: 50vh;
+    height: 100vh;
+    font-size: 200%;
+}
+
+#CallingTitle{
+    font-size: 150%;
+    margin-top: 2vh;
+}
 
 /*呼びかけボタンへクリック*/
 #Calling:hover{
@@ -242,18 +254,18 @@ body{
 }
 
 /*トグルボタンによる、通知音モード⇔「今いいですか？」モードの切り替わり*/
-.switch{
+/* /* .switch{
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-}
+} */
 
-.switch input{
+/* .switch input{
     display: none;
-}
+} */
 
-.slider{
+/* .slider{
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -263,9 +275,9 @@ body{
     background-color: #ccc;
     transition: 0.4s;
     border-radius: 34px;
-}
+} */
 
-.slider::before{
+/* .slider::before{
     position: absolute;
     content: "";
     height: 26px;
@@ -275,21 +287,21 @@ body{
     background-color: white;
     transition: 0.4s;
     border-radius: 50%;
-}
+} */
 
-input:checked + .slider{
+/* input:checked + .slider{
     background-color: #2196F3;
-}
+} */
 
-input:checked + .slider::before{
+/* input:checked + .slider::before{
     transform: translateX(26px);
-}
+} */
 
-#ModeDisplay {
+/* #ModeDisplay {
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 20px;
     background-color: #f9f9f9;
-}
+} */
