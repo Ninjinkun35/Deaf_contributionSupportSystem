@@ -1,19 +1,22 @@
 @charset "utf-8";
 
-html{
+/* ページ全体の高さ・幅設定と背景色 */
+html, body {
+    margin: 0;
+    padding: 0;
     height: 100%;
-    width: 100%;
+    overflow: auto;
     background-color: #F1F1F4;
+    width: 100%;
 }
 
-body{
-    max-width: 1064px;
-    /*パディング分を考慮して*/
-    min-width: 1064px;
-    /*パディング分を考慮して*/
-    margin: auto;
+/* コンテンツ領域（body）の最大・最小幅と中央配置 */
+body {
+    max-width: 1064px;  /* 最大幅を固定 */ /*パディング分を考慮して*/
+    min-width: 1064px;  /* 最小幅を固定 */ /*パディング分を考慮して*/
+    margin: 0 auto;     /* 左右中央寄せ */
     padding: 0;
-    background: #FFFFFF;
+    background-color: #FFFFFF; /* 背景色は白 */
 }
 
 /*ヘッダーのスタイリング*/
@@ -170,7 +173,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 0.5em; */
 }
 
 .Camera > video{
@@ -187,6 +190,7 @@ body{
     display: flex;
     align-items: center;
     gap: 20px;
+    padding-bottom: 1em;
 }
 
 #Calling{
@@ -213,9 +217,11 @@ body{
 }
 /*呼びかけモード設定ボタン*/
 #CallingType{
-    width: 50vh;
-    height: 100vh;
-    font-size: 200%;
+    width: 1000px;
+    max-width: 80%;
+    height: 200vh;
+    font-size: 150%;
+    padding: 0.5em;
 }
 
 #CallingTitle{

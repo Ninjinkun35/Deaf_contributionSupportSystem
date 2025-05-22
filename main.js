@@ -130,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function(){
 //     });
 // });
 
-
 // カメラの動的処理
 window.addEventListener('load', function(){
     // Videoのstream
