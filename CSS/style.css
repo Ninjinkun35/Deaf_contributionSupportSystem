@@ -157,7 +157,7 @@ body {
      /*手動リサイズを禁止*/
     resize: none;
      /*高さの最小値を指定*/
-    min-height: 900px;
+    min-height: 800px;
     /* padding: 0.5em; */
     width: 100%;
     /*入力する文字の大きさを指定*/
@@ -178,7 +178,7 @@ body {
 
 .Camera > video{
     width: 100%;
-    height: 100%;
+    height: 98%;
     /* flex: 1; */
     object-fit: cover;
     /* min-height: 300px; */
