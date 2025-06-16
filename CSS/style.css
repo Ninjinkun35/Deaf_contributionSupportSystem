@@ -157,7 +157,7 @@ body {
      /*手動リサイズを禁止*/
     resize: none;
      /*高さの最小値を指定*/
-    min-height: 800px;
+    min-height: 750px;
     /* padding: 0.5em; */
     width: 100%;
     /*入力する文字の大きさを指定*/
@@ -169,7 +169,7 @@ body {
 
 /*カメラ画面*/
 .Camera{
-    flex: 0 0 80%;
+    flex: 0 0 70%;
     display: flex;
     align-items: center;
     justify-content: center;
