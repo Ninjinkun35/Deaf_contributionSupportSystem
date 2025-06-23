@@ -22,11 +22,12 @@ body {
 /*ヘッダーのスタイリング*/
 .header{
     height: 80px;
-    background-color: #0f5474;
+    background-color: #005A9C;
     /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
+    /* margin: 2vw; */
 }
 .header_container{
     max-width: 1000px;
@@ -36,8 +37,8 @@ body {
     height: inherit;
     color: #fff;
     padding: 0 25px;
-    margin-right: auto;
-    margin-left: auto;
+    /* margin-right: auto;
+    margin-left: auto; */
 }
 .header_logo{
     text-decoration: none;
@@ -231,21 +232,34 @@ body {
   border-radius: 50%;
 }
 .switchLabel input:checked + .slider {
-  background-color: green;
+  background-color: #34C759;
 }
 .switchLabel input:checked + .slider::before {
   transform: translateX(26px);
 }
 
+/*発言ログエリア*/
+.log-section{
+    height: 20vh;
+    overflow-y: auto;
+    padding: 1vw;
+    background: #f1f1f1;
+    font-size: 1.2vw;
+    margin-bottom: 1vh;
+}
 #logArea{
-    margin-top: 2em;
+    margin-top: 0.5em;
     padding: 1em;
     border-top: 2px solid #ccc;
     background-color: #f9f9f9;
-    padding-top: 1em;
+    /* padding-top: 1em; */
     font-family: serif;
     font-size: 1.2em;
     color: #444;
+}
+#LogTitle{
+    font-size: 150%;
+    margin: 2vh;
 }
 
 /*カメラ画面*/

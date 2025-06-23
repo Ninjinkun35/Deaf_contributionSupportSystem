@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>トーク宅急便 -オンライン会議の発言支援機能-</title>
+        <title>トーク・デリバリー -オンライン会議の発言支援アプリ-</title>
         <link rel="stylesheet" href="CSS/style.css">
         <link rel="icon" href="images/Talk Takkyubun.png">
     </head>
@@ -13,7 +13,7 @@
         <header class="header">
             <div class="header_container">
                 <img src="images/Talk Takkyubun.png" class="header_image">
-                <h1 class="header_container">トーク宅配便 -オンライン会議の発言支援機能-</h1>
+                <h1 class="header_container">トーク・デリバリー -オンライン会議の発言支援アプリ-</h1>
                 <!-- ハンバーガーボタンの実装 -->
                 <!-- <button type="button" class="hamburger"> -->
                     <!-- <span></span> ハンバーガーボタンの線の実装 -->
@@ -30,6 +30,12 @@
         </header>
     <div>
         <div class="container">
+            <!--発言ログ表示領域-->
+            <div>
+                <label id="LogTitle">発言ログエリア</label>
+            </div>
+            <div class="log-section" id="logArea"></div>
+        </div>
         <!--親ブロックの設定（container）-->
             <div class="main-container">
                 <!--左画面-->
@@ -42,7 +48,7 @@
                     <span id="toggleLabel">発言内容の音声読み上げ OFF</span>
                     <!--発言入力画面-->
                     <div class="Contribution">
-                        <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力し、Enterキーを押して音声読み上げを開始"></textarea>
+                        <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力し、Enterキーを2回押すとテキストが削除"></textarea>
                     </div>
                     <!--読み上げテキスト表示領域-->
                     <div id="displayArea"></div>
@@ -75,10 +81,6 @@
                 </div>
             </div>
         </div>
-        <!--発言ログ表示領域-->
-        <!-- <div><h3>---発言ログ---</h3></div>
-        <div id="logArea"></div> -->
-    </div>
 
         <script src="main.js"></script>
         <script src="scale-manager.js"></script>

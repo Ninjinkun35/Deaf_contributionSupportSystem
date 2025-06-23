@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if(readToggle.checked && lastLine.trim() !== ''){
                 speak(lastLine);
             }
+            else if(!readToggle.checked && lastLine.trim() !== ''){
+                // ログに追加
+                const logEntry = document.createElement("div");
+                logEntry.textContent = lastLine;
+                logArea.appendChild(logEntry);
+            }
             // テキストを読み上げる
             // speak(textarea.value);
             lastKeyWasEnter = true;
@@ -98,6 +104,7 @@ function speak(text){
     //テキストを読み上げる
     window.speechSynthesis.speak(utterance);
 
+    // ログに追加
     const logEntry = document.createElement("div");
     logEntry.textContent = text;
     logArea.appendChild(logEntry);
