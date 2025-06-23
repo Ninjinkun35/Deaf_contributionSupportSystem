@@ -13,7 +13,7 @@
         <header class="header">
             <div class="header_container">
                 <img src="images/Talk Takkyubun.png" class="header_image">
-                <h1 class="header_container">トーク宅急便 -オンライン会議の発言支援機能-</h1>
+                <h1 class="header_container">トーク宅配便 -オンライン会議の発言支援機能-</h1>
                 <!-- ハンバーガーボタンの実装 -->
                 <!-- <button type="button" class="hamburger"> -->
                     <!-- <span></span> ハンバーガーボタンの線の実装 -->
@@ -28,43 +28,57 @@
                 <!-- </nav> -->
             </div>
         </header>
-
-        <!--親ブロックの設定（container）-->
+    <div>
         <div class="container">
-            <!--左画面-->
-            <div class="left">
-                <!--発言入力画面-->
-                <div class="Contribution">
-                    <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力し、Enterキーを押して音声読み上げを開始"></textarea>
+        <!--親ブロックの設定（container）-->
+            <div class="main-container">
+                <!--左画面-->
+                <div class="left">
+                    <!--読み上げ機能設定-->
+                    <label class="switchLabel">
+                        <input type="checkbox" id="readToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="toggleLabel">発言内容の音声読み上げ OFF</span>
+                    <!--発言入力画面-->
+                    <div class="Contribution">
+                        <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力し、Enterキーを押して音声読み上げを開始"></textarea>
+                    </div>
+                    <!--読み上げテキスト表示領域-->
+                    <div id="displayArea"></div>
                 </div>
-            </div>
         
-             <!--右画面-->
-            <div class="right">
-                <!--カメラ起動-->
-                <div class="Camera">
-                    <video id="video" playsinline></video>
-                </div>        
-                <!-- <div>
-                    <div id="ModeDisplay">通知音モード</div>
-                </div> -->
-                <!--呼びかけモードの設定-->
-                <label id="CallingTitle">呼びかけモードの設定</label>
-                <select id="CallingType">
-                    <option value="ModeDisplay">通知音モード</option>
-                    <option value="TextDisplay">今いいですか？モード</option>
-                </select>
-                <!--呼びかけボタンの実装-->
-                <div id="ControlContainer">
-                    <button id="Calling">呼びかけ</button>
+                <!--右画面-->
+                <div class="right">
+                    <!--カメラ起動-->
+                    <div class="Camera">
+                        <video id="video" playsinline></video>
+                    </div>        
+                    <!-- <div>
+                        <div id="ModeDisplay">通知音モード</div>
+                    </div> -->
+                    <!--呼びかけモードの設定-->
+                    <label id="CallingTitle">呼びかけモードの設定</label>
+                    <select id="CallingType">
+                        <option value="ModeDisplay">通知音モード</option>
+                        <option value="TextDisplay">今いいですか？モード</option>
+                    </select>
+                    <!--呼びかけボタンの実装-->
+                    <div id="ControlContainer">
+                        <button id="Calling">呼びかけ</button>
 
                     <!-- <label class="switch" id="SoundToggleLabel">
                         <input type="checkbox" id="SoundToggle">
                         <span class="slider"></span>
                     </label> -->
+                    </div>
                 </div>
             </div>
         </div>
+        <!--発言ログ表示領域-->
+        <!-- <div><h3>---発言ログ---</h3></div>
+        <div id="logArea"></div> -->
+    </div>
 
         <script src="main.js"></script>
         <script src="scale-manager.js"></script>

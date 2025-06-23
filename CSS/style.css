@@ -122,11 +122,22 @@ body {
     right: 0;
 } */
 
-/*左画面にテキスト欄, 右画面にカメラ画面＆呼びかけボタンの配置*/
 .container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1064px;
+    margin: auto;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+/*左画面にテキスト欄, 右画面にカメラ画面＆呼びかけボタンの配置*/
+.main-container{
     display: flex;
     width: 100%;
     height: 100vh;
+    justify-content: space-between;
+    gap: 1em;
 }
 
 /*左右の画面を2分割*/
@@ -157,7 +168,7 @@ body {
      /*手動リサイズを禁止*/
     resize: none;
      /*高さの最小値を指定*/
-    min-height: 750px;
+    min-height: 700px;
     /* padding: 0.5em; */
     width: 100%;
     /*入力する文字の大きさを指定*/
@@ -165,6 +176,76 @@ body {
     /*入力する文字のテキストを指定（明朝体）*/
     font-family: serif;
     box-sizing: border-box;
+}
+
+#displayArea{
+    font-size: 2em;
+    font-family: serif;
+    color: black;
+    margin-bottom: 1em;
+    line-height: 1.4;
+    word-wrap: break-word;
+    min-height: 2em;
+}
+#displayArea span{
+    transition: color 0.3s ease;
+}
+.red{
+    color: red;
+}
+
+/*読み上げ機能On/Offのトグルボタン*/
+.switchLabel {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.switchLabel input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.switchLabel input:checked + .slider {
+  background-color: green;
+}
+.switchLabel input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+#logArea{
+    margin-top: 2em;
+    padding: 1em;
+    border-top: 2px solid #ccc;
+    background-color: #f9f9f9;
+    padding-top: 1em;
+    font-family: serif;
+    font-size: 1.2em;
+    color: #444;
 }
 
 /*カメラ画面*/

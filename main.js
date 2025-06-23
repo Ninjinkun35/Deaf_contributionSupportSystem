@@ -12,35 +12,95 @@
 // 発言入力の動的処理
 document.addEventListener('DOMContentLoaded', () => {
     // テキストエリアにイベントリスナーを設定
+    const toggle = document.getElementById("readToggle");
+    const label = document.getElementById("toggleLabel");
     const textarea = document.getElementById("Chat");
+    const readToggle = document.getElementById("readToggle");
+    const displayArea = document.getElementById("displayArea");
+    const logArea = document.getElementById("logArea");
+    let lastKeyWasEnter;
+
+    let lastEnterTime = 0;
+
+    toggle.addEventListener("change", () => {
+        label.textContent = toggle.checked ? "発言内容の音声読み上げ ON" : "発言内容の音声読み上げ OFF";
+    });
+
     textarea.addEventListener("keyup", function(e){
         // Enterがクリックされる場合に発話する
         if(e.key === 'Enter'){
+            if(lastKeyWasEnter){
+                textarea.value = '';
+                lastKeyWasEnter = false;
+                return;
+            }
+
+            // const now = Date.now();
+            // const timeSinceLastEnter = now - lastEnterTime;
+            // lastEnterTime = now;
+
             const cursorPos = textarea.selectionStart;
             const textBeforeCursor = textarea.value.substring(0, cursorPos);
+
+            // if(timeSinceLastEnter < 500){
+            //     textarea.value = ''
+            //     return;
+            // }
 
             // 最後の改行位置を探す
             const lines = textBeforeCursor.split('\n');
             const lastLine = lines[lines.length - 2] || ''; //1つ前の行
 
-            if(lastLine.trim() !== ''){
+            if(readToggle.checked && lastLine.trim() !== ''){
                 speak(lastLine);
             }
             // テキストを読み上げる
             // speak(textarea.value);
+            lastKeyWasEnter = true;
+        }else{
+            lastKeyWasEnter = false;
         }
     });
 });
 
 // テキストを読み上げる関数
 function speak(text){
+    const displayArea = document.getElementById("displayArea");
+    displayArea.innerHTML = ""; //表示領域をクリア
+
+    // spanで文字を分割表示
+    const spans = [...text].map(char => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        displayArea.appendChild(span);
+        return span;
+    });
+
     // SpeechSynthesisUtterance オブジェクトを作成
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "ja-JP"; //言語設定を日本語に設定
     utterance.rate = 1.0; // 読み上げの速さを1.0倍に設定
 
+    // 1文字あたりの時間(ms)
+    const charTime = 170;
+
+    // アニメーション処理
+    spans.forEach((span, i) => {
+        setTimeout(() => {
+            span.classList.add("red");
+        }, i * charTime)
+    });
+
+    utterance.onend = () => {
+        displayArea.innerHTML = "";
+    };
+
     //テキストを読み上げる
     window.speechSynthesis.speak(utterance);
+
+    const logEntry = document.createElement("div");
+    logEntry.textContent = text;
+    logArea.appendChild(logEntry);
 }
 
 // 呼びかけボタンの動的処理
