@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = document.getElementById("toggleLabel");
     const textarea = document.getElementById("Chat");
     const readToggle = document.getElementById("readToggle");
-    const displayArea = document.getElementById("displayArea");
+    // const displayArea = document.getElementById("displayArea");
     const logArea = document.getElementById("logArea");
     let lastKeyWasEnter;
 
@@ -71,14 +71,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // テキストを読み上げる関数
 function speak(text){
-    const displayArea = document.getElementById("displayArea");
-    displayArea.innerHTML = ""; //表示領域をクリア
+    // const displayArea = document.getElementById("displayArea");
+    const logArea = document.getElementById("logArea");
+    // displayArea.innerHTML = ""; //表示領域をクリア
 
     // spanで文字を分割表示
     const spans = [...text].map(char => {
         const span = document.createElement("span");
         span.textContent = char;
-        displayArea.appendChild(span);
+        logArea.appendChild(span);
         return span;
     });
 
@@ -98,16 +99,18 @@ function speak(text){
     });
 
     utterance.onend = () => {
-        displayArea.innerHTML = "";
+        spans.forEach((span, i) => {
+            span.classList.add("black");
+        });
     };
 
     //テキストを読み上げる
     window.speechSynthesis.speak(utterance);
 
     // ログに追加
-    const logEntry = document.createElement("div");
-    logEntry.textContent = text;
-    logArea.appendChild(logEntry);
+    // const logEntry = document.createElement("div");
+    // logEntry.textContent = text;
+    // logArea.appendChild(logEntry);
 }
 
 // 呼びかけボタンの動的処理

@@ -123,6 +123,10 @@ body {
     right: 0;
 } */
 
+.main{
+    height: 100vh;
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -136,7 +140,7 @@ body {
 .main-container{
     display: flex;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     justify-content: space-between;
     gap: 1em;
 }
@@ -194,6 +198,9 @@ body {
 .red{
     color: red;
 }
+.black{
+    color: #444;
+}
 
 /*読み上げ機能On/Offのトグルボタン*/
 .switchLabel {
@@ -240,16 +247,16 @@ body {
 
 /*発言ログエリア*/
 .log-section{
-    height: 20vh;
+    height: 10vh;
     overflow-y: auto;
-    padding: 1vw;
+    /* padding: 1vw; */
     background: #f1f1f1;
     font-size: 1.2vw;
-    margin-bottom: 1vh;
+    /* margin-bottom: 1vh; */
 }
 #logArea{
-    margin-top: 0.5em;
-    padding: 1em;
+    /* margin-top: 0.5em; */
+    /* padding: 1em; */
     border-top: 2px solid #ccc;
     background-color: #f9f9f9;
     /* padding-top: 1em; */
@@ -259,7 +266,7 @@ body {
 }
 #LogTitle{
     font-size: 150%;
-    margin: 2vh;
+    /* margin: 2vh; */
 }
 
 /*カメラ画面*/
@@ -285,7 +292,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding-bottom: 1em;
+    /* padding-bottom: 1em; */
 }
 
 #Calling{

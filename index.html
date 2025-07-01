@@ -28,14 +28,7 @@
                 <!-- </nav> -->
             </div>
         </header>
-    <div>
-        <div class="container">
-            <!--発言ログ表示領域-->
-            <div>
-                <label id="LogTitle">発言ログエリア</label>
-            </div>
-            <div class="log-section" id="logArea"></div>
-        </div>
+    <div class="main">
         <!--親ブロックの設定（container）-->
             <div class="main-container">
                 <!--左画面-->
@@ -51,7 +44,7 @@
                         <textarea id="Chat" name="Chatinput" placeholder="ここにテキストを入力し、Enterキーを2回押すとテキストが削除"></textarea>
                     </div>
                     <!--読み上げテキスト表示領域-->
-                    <div id="displayArea"></div>
+                    <!-- <div id="displayArea"></div> -->
                 </div>
         
                 <!--右画面-->
@@ -80,7 +73,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+             <div class="container">
+                <!-- <div>
+                    <label id="LogTitle">発言ログエリア</label>
+                </div> -->
+                <!--発言ログ表示領域 & 読み上げテキスト表示領域-->
+                <div class="log-section" id="logArea"></div>
+            </div>
+    </div>
 
         <script src="main.js"></script>
         <script src="scale-manager.js"></script>
