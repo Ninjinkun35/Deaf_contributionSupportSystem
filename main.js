@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const logEntry = document.createElement("div");
                 logEntry.textContent = lastLine;
                 logArea.appendChild(logEntry);
+                // 自動スクロール
+                logEntry.scrollIntoView({ behavior: "smooth" });
             }
             // テキストを読み上げる
             // speak(textarea.value);
@@ -75,11 +77,15 @@ function speak(text){
     const logArea = document.getElementById("logArea");
     // displayArea.innerHTML = ""; //表示領域をクリア
 
+    const logEnrty = document.createElement("br");
+
     // spanで文字を分割表示
     const spans = [...text].map(char => {
         const span = document.createElement("span");
         span.textContent = char;
         logArea.appendChild(span);
+        logArea.appendChild(logEnrty);
+        logEnrty.scrollIntoView({ behavior: "smooth" });
         return span;
     });
 
