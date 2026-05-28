@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     textarea.addEventListener("keyup", function(e){
         // Enterがクリックされる場合に発話する
         if(e.key === 'Enter'){
-            if(lastKeyWasEnter){
+            if(e.key === 'Enter' && e.shiftKey){
+                e.preventDefault(); // Shift + Enterのデフォルト動作を防止
                 textarea.value = '';
-                lastKeyWasEnter = false;
-                return;
+                // lastKeyWasEnter = false;
+                // return;
             }
 
             // const now = Date.now();
